@@ -14,6 +14,6 @@ We want to combine these two datasets so we can link the number of immigrants to
 Down below are the links to the Datasets:
 
 <a href="http://cso.ie/webserviceclient/DatasetDetails.aspx?id=FNA01"><strong>FNA01</strong>
-<a href="http://cso.ie/webserviceclient/DatasetDetails.aspx?id=FNA07/"><strong>FNA07</strong>
+<a href="http://cso.ie/webserviceclient/DatasetDetails.aspx?id=FNA07"><strong>FNA07</strong>
 
 
