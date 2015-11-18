@@ -1,5 +1,5 @@
 
-
+var path = require('path');
 var fs = require('fs');
 
 var express = require('express')
@@ -13,17 +13,24 @@ var db_name = 'my_couch';
 
 var couchdb = nano.use(db_name);
 
+var local;
 
-couchdb.get('this_is_the_document', { revs_info: true }, function (err, body) {
-    if (!err)
-       // console.log(body.dataset.dimension.Country);
-        data = body;
-
-       // fs.writeFileSync('newJson.json', data.dataset);
-});
 
 //console.log(data.dataset.dimension.Country);
 
+
+function getData(){
+    couchdb.get('this_is_the_document', { revs_info: true }, function (err, body) {
+        console.log("Error: " + err + "\nbody: " + body);
+        if (!err)
+            //console.log(body.dataset.dimension.Country);
+            data = body;
+            
+            local = true;
+        // fs.writeFileSync('newJson.json', data.dataset);
+    });
+
+}
 
 //console.log(get_type(data));
 //nano.db.destroy(db_name, function () {
@@ -43,15 +50,31 @@ couchdb.get('this_is_the_document', { revs_info: true }, function (err, body) {
 //    });
 //});
 
+app.set('view engine', 'jade');
+
 app.get("/", function (request, response) {
-    response.send("Why hello there");
+    response.contentType('text/html');
+    response.status(200).sendFile(path.join(__dirname + '/views/index.html'));
+});
+
+app.get("/crimeco", function (request, response) {
+    response.contentType('text/html');
+    response.status(200).sendFile(path.join(__dirname + '/views/crimeco.html'));
 });
  
 
-app.get('/:id', function (req, res) {
+app.get('/:id', function (request, response) {
+    console.log(request.params.id);
+    if(!local)
+    {
+       getData();
+    }
+    else {
+
+    }
 
     var result;
-
+    response.status(200).json(request.params.id);
 });
 
 

@@ -4,7 +4,8 @@
   "description": "In this project me (Vytas) and Finn are going to use datasets from www.cso.ie website.\r The datasets chosen for the project are as follows:",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":  "node index.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,7 @@
   "dependencies": {
     "express": "^4.13.3",
     "nano": "^6.1.5",
-    "pouchdb": "^5.1.0",
+    "path": "^0.12.7",
     "request": "^2.65.0"
   }
 }
