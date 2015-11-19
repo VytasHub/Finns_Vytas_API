@@ -2,6 +2,15 @@
 var path = require('path');
 var fs = require('fs');
 
+
+
+
+
+
+
+
+
+
 var express = require('express')
    , app = module.exports = express()
    , nano = require('nano')('https://admin:a75695fd7905@couchdb-7c4dd5.smileupps.com')
@@ -19,15 +28,17 @@ var local;
 //console.log(data.dataset.dimension.Country);
 
 
-function getData(){
+function getData(callback){
     couchdb.get('this_is_the_document', { revs_info: true }, function (err, body) {
         console.log("Error: " + err + "\nbody: " + body);
         if (!err)
+
             //console.log(body.dataset.dimension.Country);
             data = body;
             
             local = true;
-        // fs.writeFileSync('newJson.json', data.dataset);
+            callback();
+       
     });
 
 }
@@ -63,18 +74,25 @@ app.get("/crimeco", function (request, response) {
 });
  
 
-app.get('/:id', function (request, response) {
-    console.log(request.params.id);
-    if(!local)
-    {
-       getData();
-    }
-    else {
-
-    }
+app.get('/crimeco/counties/:id', function (request, response) {
 
     var result;
-    response.status(200).json(request.params.id);
+
+    if(!local)
+    {
+        getData(function () {
+
+                console.log('callback');
+            });        
+    }
+    else {
+        result = "local";//data.dataset.dimension.Country[request.params.id];
+    }
+
+    console.log(result);
+
+    response.send(result);
+    //response.status(200).json(request.params.id);
 });
 
 
