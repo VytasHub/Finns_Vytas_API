@@ -3,10 +3,6 @@ var path = require('path');
 var fs = require('fs');
 
 
-
-
-
-
 var express = require('express')
    , app = module.exports = express()
    , nano = require('nano')('https://admin:a75695fd7905@couchdb-7c4dd5.smileupps.com')
@@ -59,6 +55,9 @@ function getData(callback) {
 
 app.set('view engine', 'jade');
 
+
+
+
 app.get("/", function (request, response) {
     response.contentType('text/html');
     response.status(200).sendFile(path.join(__dirname + '/views/index.html'));
@@ -69,6 +68,27 @@ app.get("/crimeco", function (request, response) {
     response.status(200).sendFile(path.join(__dirname + '/views/crimeco.html'));
 });
  
+ 
+app.use(function (req, res, next) {
+
+   // Website you wish to allow to connect
+   res.setHeader('Access-Control-Allow-Origin', '*'); // null or url
+
+   // Request methods you wish to allow
+   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+   // Request headers you wish to allow
+   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+   // Set to true if you need the website to include cookies in the requests sent
+   // to the API (e.g. in case you use sessions)
+   res.setHeader('Access-Control-Allow-Credentials', true);
+
+   // Pass to next layer of middleware
+   next();
+});
+
+
 
 app.get('/crimeco/counties/:id', function (request, response) {
 
@@ -96,11 +116,11 @@ app.get('/crimeco/counties/', function (request, response) {
 
     if (!local) {
         getData(function () {
-            response.send(data.dataset.dimension["County and Region"].category.label);
+            response.send(data.dataset.dimension["County and Region"]);
         });
     }
     else {
-        response.send(data.dataset.dimension["County and Region"].category.label);
+        response.send(data.dataset.dimension["County and Region"]);
     }
 
     //response.status(200).json(request.params.id);
