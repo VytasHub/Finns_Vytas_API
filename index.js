@@ -43,7 +43,6 @@ var data;
 function getData(callback) {
 
     couchdb.get('income', { revs_info: true }, function (err, body) {
-        console.log(err + "\nbody: " + body);
         if (!err)
             data = body;     
             local = true;
@@ -55,9 +54,6 @@ function getData(callback) {
 
 app.set('view engine', 'jade');
 
-
-
-
 app.get("/", function (request, response) {
     response.contentType('text/html');
     response.status(200).sendFile(path.join(__dirname + '/views/index.html'));
@@ -68,6 +64,11 @@ app.get("/crimeco", function (request, response) {
     response.status(200).sendFile(path.join(__dirname + '/views/crimeco.html'));
 });
  
+
+app.get("/countiespost", function (request, response) {
+    response.contentType('text/html');
+    response.status(200).sendFile(path.join(__dirname + '/views/counties.html'));
+});
  
 app.use(function (req, res, next) {
 
@@ -88,43 +89,40 @@ app.use(function (req, res, next) {
    next();
 });
 
-
+app.all('/crimeco/*/', function (req, res, next) {
+    if (!local) {
+        getData(function () {
+            next();
+        });
+    }
+});
 
 app.get('/crimeco/counties/:id', function (request, response) {
 
-    var result;
-
-    if(!local)
-    {
-        getData(function () {
-
-            response.send(data.dataset.dimension["County and Region"].category.label[request.params.id]);
-                
-            });        
-    }
-    else {
+    if(data != undefined)
         response.send(data.dataset.dimension["County and Region"].category.label[request.params.id]);
-    }
-
-    console.log(result);
-
-    response.send(result);
-    //response.status(200).json(request.params.id);
+    else
+        response.send("No Data :/")
 });
+
 
 app.get('/crimeco/counties/', function (request, response) {
-
-    if (!local) {
-        getData(function () {
-            response.send(data.dataset.dimension["County and Region"]);
-        });
-    }
-    else {
-        response.send(data.dataset.dimension["County and Region"]);
-    }
-
-    //response.status(200).json(request.params.id);
+ 
+    if(data != undefined)
+        response.send(data.dataset.dimension["County and Region"].category.label);
+    else
+        response.send("No Data :/");
 });
+
+
+
+app.post('/countiespost/', function (request, response) {
+    console.log("you posted" + request.param.variable_name);
+
+    console.log(request.body.crime);     // your JSON
+    response.send(request.body);    // echo the result back
+});
+
 
 
 app.listen(3333);

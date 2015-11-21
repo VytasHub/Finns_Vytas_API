@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>crime corelator</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("#post").click(function () {
+                console.log("posted");
+                var crime = $("#crime").val();
+                var location = $("#location").val();
+                $.post("http://127.0.0.1:3333/crimeco/countiespost", { crime: crime, location: location }, function (data) {
+                   
+                });
+        });
+        });
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Crime Corelator</h1>
+
+            <input type="text" name="crime" size="40" /><br />
+            <input type="text" name=" location" size="40" /> <br/>
+            <input type="button" name="post" size="40" /><br/>
+
+
+         
+
+
+
+        </div>
+    </div>
+</body>
+</html>
