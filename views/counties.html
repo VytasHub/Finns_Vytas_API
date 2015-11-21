@@ -10,28 +10,67 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <script>
-        $(document).ready(function(){
+     
+        $(document).ready(function () {    
             $("#post").click(function () {
-                console.log("posted");
+
                 var crime = $("#crime").val();
-                var location = $("#location").val();
-                $.post("http://127.0.0.1:3333/crimeco/countiespost", { crime: crime, location: location }, function (data) {
-                   
-                });
+                var location = $("#location").val();         
+                var formData = { crime: crime, location: location }; //Array 
+                formData = JSON.stringify(formData);
+                alert(formData);
+
+
+            $.ajax({
+                url: "http://127.0.0.1:3333/crimeco/countiespost",
+                type: "POST",
+                data: formData,
+                success: function (data, textStatus, jqXHR) {
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+
+                }
+            });
         });
         });
 
     </script>
+
 </head>
 <body>
     <div class="container">
         <div class="jumbotron">
             <h1>Crime Corelator</h1>
+    
+          
+                <form role="form">
+                    <div class="form-group">
+                        <label >Crime:</label>
+                        <input type="text" class="form-control" id="crime" placeholder="Assaulting a puppy" >
+                    </div>
 
-            <input type="text" name="crime" size="40" /><br />
-            <input type="text" name=" location" size="40" /> <br/>
-            <input type="button" name="post" size="40" /><br/>
+                    <div class="form-group">
+                        <label for="pwd">Location:</label>
 
+                        <select class="form-control" id="location">
+                            <option value="Galway">Galway</option>
+                            <option value="Mayo">Mayo</option>
+                            <option value="three">Dublin</option>
+                            <option value="four">Four</option>
+                            <option value="five">Five</option>
+                        </select>
+
+                       
+                        </div>
+                    
+                    <button type="submit" class="btn btn-default"  id="post">Submit</button>
+                </form>
+           
+      
+
+      
+
+             
 
          
 

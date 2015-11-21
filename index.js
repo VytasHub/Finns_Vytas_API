@@ -8,6 +8,8 @@ var express = require('express')
    , nano = require('nano')('https://admin:a75695fd7905@couchdb-7c4dd5.smileupps.com')
    , request = require('request');
 
+var cors = require('cors');
+var qs = require('querystring');
 var db_name= 'crimedb';
 
 var couchdb = nano.use(db_name);
@@ -39,6 +41,8 @@ var local;
 
 var data;
 
+app.use(cors());
+
 
 function getData(callback) {
 
@@ -65,7 +69,7 @@ app.get("/crimeco", function (request, response) {
 });
  
 
-app.get("/countiespost", function (request, response) {
+app.get("/crimeco/countiespost", function (request, response) {
     response.contentType('text/html');
     response.status(200).sendFile(path.join(__dirname + '/views/counties.html'));
 });
@@ -116,14 +120,47 @@ app.get('/crimeco/counties/', function (request, response) {
 
 
 
-app.post('/countiespost/', function (request, response) {
-    console.log("you posted" + request.param.variable_name);
+app.post('/crimeco/countiespost/', function (request, response) {
 
-    console.log(request.body.crime);     // your JSON
-    response.send(request.body);    // echo the result back
+    var body = '';
+
+    request.on('data', function (data) {
+        body += data;
+    });
+
+
+
+    request.on('end', function () {
+        var post = JSON.parse(body);
+
+        console.log("Crime: " + post.crime + "   Location: " + post.location);
+    });
+    
 });
 
+app.post('/login', function (request, res) {
 
+
+    var body = '';
+
+
+
+
+    //var user_name = JSON.parse(req.body);
+    ////var user_name2 = JSON.stringify(req);
+    ////var test = req.body.name;
+    ////console.log(user_name);
+    //if (req == undefined) {
+    //    console.log('Fucked');
+    //}
+
+    //console.log(user_name);
+    //console.log(user_name2);
+    //console.log(JSON.stringify(test));
+    //var password = JSON.stringify(req.body.password);
+    //console.log("User name = " + user_name + ", password is " + password);
+
+});
 
 app.listen(3333);
 console.log("server is on port 3333");
