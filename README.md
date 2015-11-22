@@ -9,11 +9,11 @@ We are using couch DB which hosted on following website: smileupps.com
 Paths:
 
 ---------|------------
-/crimeco/counties | Gets all the county’s
-/crimeco/counties:id | Gets county by id
-/crimeco/counties/5003 | An example for county id
-/crimeco/counties/crime | Return different types of crime 
-/crimeco/income | Gets different types of house hold income
+##/crimeco/counties | Gets all the county’s
+##/crimeco/counties:id | Gets county by id
+##/crimeco/counties/5003 | An example for county id
+##/crimeco/counties/crime | Return different types of crime 
+##/crimeco/income | Gets different types of house hold income
 
 Technology’s used
 Modules:
