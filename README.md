@@ -29,7 +29,7 @@ Gets different types of house hold income
 ##Technology’s used
 Modules: Cors, Express, Nano, Path, Request
 
-##Others:
+##Others
 Angular, Ajax, JQuery, Bootstrap
 
 
