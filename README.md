@@ -27,12 +27,7 @@ Return different types of crime
 Gets different types of house hold income
 
 ##Technology’s used
-Modules: 
-1.Cors
-2.Express
-3.Nano
-4.Path
-5.Request
+Modules: Cors, Express, Nano, Path, Request
 
 ##Others
 Angular, Ajax, JQuery, Bootstrap, Node.js, Jade
