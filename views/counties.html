@@ -1,82 +1,46 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
+
+
 <head>
-    <title>crime corelator</title>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <title>Couties and Crime</title>
+  <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="counties.js"></script>
 
-
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-    <script>
-     
-        $(document).ready(function () {    
-            $("#post").click(function () {
-
-                var crime = $("#crime").val();
-                var location = $("#location").val();         
-                var formData = { crime: crime, location: location }; //Array 
-                formData = JSON.stringify(formData);
-                alert(formData);
-
-
-            $.ajax({
-                url: "http://127.0.0.1:3333/crimeco/countiespost",
-                type: "POST",
-                data: formData,
-                success: function (data, textStatus, jqXHR) {
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-
-                }
-            });
-        });
-        });
-
-    </script>
-
-</head>
+ </head>
 <body>
-    <div class="container">
-        <div class="jumbotron">
-            <h1>Crime Corelator</h1>
-    
-          
-                <form role="form">
-                    <div class="form-group">
-                        <label >Crime:</label>
-                        <input type="text" class="form-control" id="crime" placeholder="Assaulting a puppy" >
-                    </div>
+    <script src="counties.js"></script>
+<h1>Ireland Countys</h1>
 
-                    <div class="form-group">
-                        <label for="pwd">Location:</label>
+<p></p>
 
-                        <select class="form-control" id="location">
-                            <option value="Galway">Galway</option>
-                            <option value="Mayo">Mayo</option>
-                            <option value="three">Dublin</option>
-                            <option value="four">Four</option>
-                            <option value="five">Five</option>
-                        </select>
+<div ng-app="myApp" ng-controller="customersCtrl"> 
 
-                       
-                        </div>
-                    
-                    <button type="submit" class="btn btn-default"  id="post">Submit</button>
-                </form>
-           
-      
-
-      
-
-             
-
-         
+<table class="table table-striped table-bordered table-hover table-condensed">
+            <tr>
+                <th>Name</th><th>Extra Field</th>
+            </tr>
+            <tr ng-repeat="x in names">
+                
+                <td>{{x}}</td>
+                <td>{{x}}</td>
+                
+            </tr>
+        </table>
 
 
 
-        </div>
-    </div>
+</div>
+
 </body>
 </html>
+
+
+

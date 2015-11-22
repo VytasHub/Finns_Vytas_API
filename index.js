@@ -9,7 +9,6 @@ var express = require('express')
    , request = require('request');
 
 var db_name= 'crimedb';
-
 var couchdb = nano.use(db_name);
 
 var local;
@@ -63,11 +62,14 @@ app.get("/crimeco", function (request, response) {
     response.contentType('text/html');
     response.status(200).sendFile(path.join(__dirname + '/views/crimeco.html'));
 });
- 
-
-app.get("/countiespost", function (request, response) {
+app.get("/crimeco/counties", function (request, response) {
     response.contentType('text/html');
     response.status(200).sendFile(path.join(__dirname + '/views/counties.html'));
+});
+
+app.get("/crimeco/crime", function (request, response) {
+    response.contentType('text/html');
+    response.status(200).sendFile(path.join(__dirname + '/views/crime.html'));
 });
  
 app.use(function (req, res, next) {
@@ -95,6 +97,9 @@ app.all('/crimeco/*/', function (req, res, next) {
             next();
         });
     }
+    else {
+        next();
+    }
 });
 
 app.get('/crimeco/counties/:id', function (request, response) {
@@ -106,18 +111,12 @@ app.get('/crimeco/counties/:id', function (request, response) {
 });
 
 
-app.get('/crimeco/counties/', function (request, response) {
-    
-    //countys = [];
-    //parsedCountys = [];
-
+app.get('/crimeco/countiesdata', function (request, response) {
+   
     if(data != undefined)
     {
         response.send(data.dataset.dimension["County and Region"].category.label);
     }
-
-
-
         
     else
         response.send("No Data :/");
@@ -125,11 +124,20 @@ app.get('/crimeco/counties/', function (request, response) {
 
 
 
-app.post('/countiespost/', function (request, response) {
-    console.log("you posted" + request.param.variable_name);
+app.post('/crimeco/crime/', function (request, response) {
 
-    console.log(request.body.crime);     // your JSON
-    response.send(request.body);    // echo the result back
+    var body = '';
+
+    request.on('data', function (data) {
+        body += data;
+    });
+    console.log("I am here");
+    request.on('end', function () {
+        var post = JSON.parse(body);
+
+        console.log("Crime: " + post.crime + "   Location: " + post.location);
+    });
+
 });
 
 
