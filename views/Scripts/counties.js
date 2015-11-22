@@ -12,10 +12,7 @@ app.config(['$httpProvider', function($httpProvider) {
 
 app.controller('customersCtrl', function ($scope, $http) {
 
-    console.log("being called");
-
-
-    $http.get("http://localhost:3333/crimeco/counties")
+    $http.get("http://localhost:3333/crimeco/countiesdata")
     .success(function(response) {$scope.names = response});
 	//response.send(data.dataset.dimension["County and Region"].category.label)
 });

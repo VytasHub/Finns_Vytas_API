@@ -71,6 +71,11 @@ app.get("/crimeco/crime", function (request, response) {
     response.contentType('text/html');
     response.status(200).sendFile(path.join(__dirname + '/views/crime.html'));
 });
+
+app.get("/scripts/counties.js", function (request, response) {
+    response.contentType('text/js');
+    response.status(200).sendFile(path.join(__dirname + '/views/scripts/counties.js'));
+});
  
 app.use(function (req, res, next) {
 

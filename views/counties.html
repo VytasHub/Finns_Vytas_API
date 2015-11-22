@@ -12,35 +12,81 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="counties.js"></script>
+
+
+    <script type="text/javascript" src="/scripts/counties.js"></script>
 
  </head>
 <body>
-    <script src="counties.js"></script>
-<h1>Ireland Countys</h1>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>County data</h1>
+            <form role="form">
 
-<p></p>
+                <div class="form-group">
+                    <label for="pwd">Year:</label>
 
-<div ng-app="myApp" ng-controller="customersCtrl"> 
+                    <select class="form-control" id="year">
 
-<table class="table table-striped table-bordered table-hover table-condensed">
-            <tr>
-                <th>Name</th><th>Extra Field</th>
-            </tr>
-            <tr ng-repeat="x in names">
-                
-                <td>{{x}}</td>
-                <td>{{x}}</td>
-                
-            </tr>
-        </table>
+                        <option value="2000">2000</option>
+                        <option value="2001">2001</option>
+                        <option value="2002">2002</option>
+                        <option value="2003">2003</option>
+                        <option value="2004">2004</option>
+                        <option value="2005">2005</option>
+                        <option value="2006">2006</option>
+                        <option value="2007">2007</option>
+                        <option value="2008">2008</option>
+                        <option value="2009">2009</option>
+                        <option value="2010">2010</option>
+                    </select>
+
+
+                </div>
+
+            </form>
+
+
+            <p></p>
+
+            <div ng-app="myApp" ng-controller="customersCtrl">
+
+                <table class="table table-striped table-bordered table-hover table-condensed">
+                    <tr>
+                        <th>Name</th>
+                        <th>Extra Field</th>
+                    </tr>
+                    <tr ng-repeat="x in names">
+
+                        <td>{{x}}</td>
+                        <td>{{x}}</td>
+
+                    </tr>
+                </table>
 
 
 
-</div>
+            </div>
+
+        </div>
+    </div>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
