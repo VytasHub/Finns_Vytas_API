@@ -8,29 +8,31 @@ We want to combine these two datasets so we can link household income 14 types o
 We are using couch DB which hosted on following website: smileupps.com
 Paths:
 
-Gets all the county’s
+
 ##/crimeco/counties
+Gets all the county’s
 
-Gets county by id
 ##/crimeco/counties:id
+Gets county by id
 
-An example for county id
 ##/crimeco/counties/5003 
+An example for county id
 
-Return different types of crime 
 ##/crimeco/counties/crime
+Return different types of crime 
 
-Gets different types of house hold income
 ##/crimeco/income
+Gets different types of house hold income
 
-Technology’s used
+##Technology’s used
 Modules:
 Cors
 Express
 Nano
 Path
 Request
-Others:
+
+##Others:
 Angular, Ajax, JQuery, Bootstrap
 
 
