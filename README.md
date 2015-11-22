@@ -5,7 +5,7 @@ The datasets chosen for the project are as follows:
 
 We want to combine these two datasets so we can link household income 14 types of income per county to amount of crime happening 70 different types of crime. And see insight into the data.
 
-We are using couch DB which hosted on following website: www.smileupps.com
+We are using couch DB to store JSON files which hosted on following website: www.smileupps.com
 
 
 ###Paths:
@@ -27,12 +27,7 @@ Return different types of crime
 Gets different types of house hold income
 
 ##Technology’s used
-Modules:
-Cors
-Express
-Nano
-Path
-Request
+Modules: Cors, Express, Nano, Path, Request
 
 ##Others:
 Angular, Ajax, JQuery, Bootstrap
