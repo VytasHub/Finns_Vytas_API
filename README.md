@@ -30,7 +30,7 @@ Gets different types of house hold income
 Modules: Cors, Express, Nano, Path, Request
 
 ##Others
-Angular, Ajax, JQuery, Bootstrap, Node.js
+Angular, Ajax, JQuery, Bootstrap, Node.js, Jade
 
 
 
