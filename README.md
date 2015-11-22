@@ -8,12 +8,20 @@ We want to combine these two datasets so we can link household income 14 types o
 We are using couch DB which hosted on following website: smileupps.com
 Paths:
 
----------|------------
-##/crimeco/counties | Gets all the county’s
-##/crimeco/counties:id | Gets county by id
-##/crimeco/counties/5003 | An example for county id
-##/crimeco/counties/crime | Return different types of crime 
-##/crimeco/income | Gets different types of house hold income
+Gets all the county’s
+##/crimeco/counties
+
+Gets county by id
+##/crimeco/counties:id
+
+An example for county id
+##/crimeco/counties/5003 
+
+Return different types of crime 
+##/crimeco/counties/crime
+
+Gets different types of house hold income
+##/crimeco/income
 
 Technology’s used
 Modules:
