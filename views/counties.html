@@ -14,7 +14,30 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 
-    <script type="text/javascript" src="/scripts/counties.js"></script>
+  <script type="text/javascript" src="/scripts/counties.js"></script>
+
+   <script>
+
+       $(document).ready(function () {
+           $("#post").click(function () {
+
+            var area = $("#area").val();
+            var year = $("#year").val();
+            var statistic = $("#statistic").val();
+
+            var msg;
+
+
+            $.get("http://127.0.0.1:3333/crimeco/counties/" + area + "/" + year + "/" + statistic, function (text) {
+                msg = text;
+                $("#value").text(msg);
+            });
+        });
+    });
+
+    </script>
+
+
 
  </head>
 <body>
@@ -24,32 +47,67 @@
             <form role="form">
 
                 <div class="form-group">
-                    <label for="pwd">Year:</label>
-
-                    <select class="form-control" id="year">
-
-                        <option value="2000">2000</option>
-                        <option value="2001">2001</option>
-                        <option value="2002">2002</option>
-                        <option value="2003">2003</option>
-                        <option value="2004">2004</option>
-                        <option value="2005">2005</option>
-                        <option value="2006">2006</option>
-                        <option value="2007">2007</option>
-                        <option value="2008">2008</option>
-                        <option value="2009">2009</option>
-                        <option value="2010">2010</option>
+                           
+                    <label for="pwd">Area:</label>
+                    <select class="form-control" id="area">
+                        <option value="1">Cork City and County </option>
+                        <option value="2">Galway City and County</option>
+                        <option value="3">Limerick City and County</option>
+                        <option value="4">Waterford City and County</option>
+                        <option value="5">Border, Midland and Western</option>
+                        <option value="6">Border</option>
+                        <option value="7">Cavan</option>
+                        <option value="8">Donegal</option>
+                        <option value="9">Leitrim</option>
+                        <option value="10">louth</option>
+                        <option value="11">Monaghan</option>
+                        <option value="12">Sligo</option>
                     </select>
 
+                    <label for="pwd">Year:</label>
+                    <select class="form-control" id="year">
+                        <option value="0">2000</option>
+                        <option value="1">2001</option>
+                        <option value="2">2002</option>
+                        <option value="3">2003</option>
+                        <option value="4">2004</option>
+                        <option value="5">2005</option>
+                        <option value="6">2006</option>
+                        <option value="7">2007</option>
+                        <option value="8">2008</option>
+                        <option value="9">2009</option>
+                        <option value="10">2010</option>
+                        <option value="11">2010</option>
+                        <option value="12">2010</option>
+                    </select>
+                    <label for="pwd">Statistic:</label>
+                    <select class="form-control" id="statistic">
+                        <option value="0">Compensation of Employees (i.e. Wages and Salaries, Benefits in kind, Employers' social insurance contribution(Euro Million)</option>
+                        <option value="1">Income of Self Employed(Euro Million)</option>
+                        <option value="2">Rent of dwellings (including imputed rent of owner-occupied dwellings(Euro Million)</option>
+                        <option value="3">Net Interest and Dividends (payments by households of interest are deducted from interest received by households(Euro Million)</option>
+                        <option value="4">Primary Income(Euro Million)</option>
+                        <option value="5">Social Benefits and Other Current Transfers(Euro Million)</option>
+                        <option value="6">Total Household Income (Euro Million) </option>
+                        <option value="7">Total Income per Person (Euro)</option>
+                        <option value="8">Index of Total Income per Person (State=100)</option>
+                        <option value="9">Current Taxes on Income (Euro Million)</option>
+                        <option value="10">Disposable Household Income (Euro Million)</option>
+                        <option value="11">Disposable Income per Person (Euro)</option>
+                        <option value="12">Index of Disposable Income per Person (State=100) (State=100)</option>
+                        <option value="13">Disposable Income per Person (excluding Rent) (Euro)</option>
+                        <option value="14">Index of Disposable Income per Person (excluding Rent) (State=100)</option>
+                    </select>
 
                 </div>
-
+                
             </form>
 
-
+            <button type="submit" class="btn btn-default" id="post">Submit</button>
+            <h2>    Amount: <span class="label label-default" id="value"></span></h2>
             <p></p>
 
-            <div ng-app="myApp" ng-controller="customersCtrl">
+         <!--   <div ng-app="myApp" ng-controller="customersCtrl">
 
                 <table class="table table-striped table-bordered table-hover table-condensed">
                     <tr>
@@ -66,7 +124,7 @@
 
 
 
-            </div>
+            </div>//-->
 
         </div>
     </div>

@@ -36,18 +36,24 @@ var local;
 //});
 //console.log(data.dataset.dimension.Country);
 
-var data;
+var countyData;
+var crimeData;
 
 
 function getData(callback) {
 
     couchdb.get('income', { revs_info: true }, function (err, body) {
         if (!err)
-            data = body;     
-            local = true;
-            callback();     
+            countyData = body;
+            couchdb.get('crime', { revs_info: true }, function (err, body) {
+                if (!err)
+                    crimeData = body;
+                local = true;
+                callback();
+            });
     });
 
+ 
 }
 
 
@@ -109,25 +115,72 @@ app.all('/crimeco/*/', function (req, res, next) {
 
 app.get('/crimeco/counties/:id', function (request, response) {
 
-    if(data != undefined)
-        response.send(data.dataset.dimension["County and Region"].category.label[request.params.id]);
+   
+    if (countyData != undefined)
+        response.send(countyData.dataset.dimension["County and Region"].category.label[request.params.id]);
     else
         response.send("No Data :/")
 });
 
+app.get('/crimeco/counties/:area/:year/:statistic', function (request, response) {
 
-app.get('/crimeco/countiesdata', function (request, response) {
+    var area = parseInt(request.params.area);
+
+    var year = parseInt(request.params.year);
+
+    var statistic = parseInt(request.params.statistic);
    
-    if(data != undefined)
-    {
-        response.send(data.dataset.dimension["County and Region"].category.label);
+    console.log("this: " + crimeData.dataset.value);
+
+    if (countyData != undefined) {
+       // response.send(countyData.dataset[area][year][statistic]);
+          response.send(countyData.dataset.value[area * 195 + year * 15 + statistic]);
     }
-        
+    else
+        response.send("No Data :/");
+});
+getData(function () {
+    for (name in crimeData.dataset.dimension["Garda Division"].category.label)
+    {
+        console.log(crimeData.dataset.dimension["Garda Division"].category.label[name]);
+    }
+    //console.log(JSON.stringify(crimeData.dataset.dimension["Garda Division"].category.label));
+   // console.log("this: " + JSON.stringify(crimeData.dataset.dimension["Garda Division"]));
+});
+
+app.get('/crimeco/crime/:division/:year/:statistic', function (request, response) {
+
+    var area = parseInt(request.params.area);
+
+    var year = parseInt(request.params.year);
+
+    var statistic = parseInt(request.params.statistic);
+
+    console.log("this: " + crimeData.dataset.value);
+
+    if (countyData != undefined) {
+
+        response.send(crimeData.dataset.value[area * 195 + year * 15 + statistic]);
+    }
     else
         response.send("No Data :/");
 });
 
 
+app.get('/crimeco/countiesdata', function (request, response) {
+   
+    if (countyData != undefined)
+    {
+        response.send(countyData.dataset.dimension["County and Region"].category.label);
+    }     
+    else
+        response.send("No Data :/");
+});
+
+app.get('/crimeco/crimedata', function (request, response) {
+{
+    response.send(crimeData.dataset.dimension["Garda Division"].category.label);
+}
 
 app.post('/crimeco/crime/', function (request, response) {
 
@@ -136,7 +189,6 @@ app.post('/crimeco/crime/', function (request, response) {
     request.on('data', function (data) {
         body += data;
     });
-    console.log("I am here");
     request.on('end', function () {
         var post = JSON.parse(body);
 
