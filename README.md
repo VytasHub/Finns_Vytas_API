@@ -40,7 +40,7 @@ www.npmjs.com
 ####Modules: 
 #####Cors
 Cross-origin resource sharing (CORS) is a mechanism that allows restricted resources on a web page to be requested from another domain outside the domain from which the resource originated.
-`npm install cors`
+>`npm install cors`
 #####Express
 The Express philosophy is to provide small, robust tooling for HTTP servers, making it a great solution for single page applications, web sites, hybrids, or public HTTP APIs.
 `npm install express`
@@ -57,6 +57,11 @@ The simplest way to create HTTP requests in Node.js is by using the request modu
 
 ####Others
 Angular, Ajax, JQuery, Bootstrap, Node.js, Jade
+
+First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
 
 
 
