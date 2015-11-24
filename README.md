@@ -64,7 +64,7 @@ This module contains utilities for handling and transforming file paths. Almost 
 The simplest way to create HTTP requests in Node.js is by using the request module.
 `npm install request`
 
-####Others
+####Other Technologys used 
 Angular, Ajax, JQuery, Bootstrap, Node.js, Jade
 
 
