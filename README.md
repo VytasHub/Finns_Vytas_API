@@ -26,9 +26,14 @@ We are using couch DB to store JSON files which hosted on following website: www
 `/crimeco/income`
 
 ####Example
+
 `localhost:3333/crimeco/counties/5003`
 
-![HartChaser Logo](https://github.com/VytasHub/UnityGameBrowser/blob/master/FinishedBrowser/Assets/returnLogo.png "HartChaser")
+Name  | Extra Field
+------------- | -------------
+State|State
+Cork City and County  | Cork City and County
+
 
 
 ##Technology’s used
@@ -58,10 +63,7 @@ The simplest way to create HTTP requests in Node.js is by using the request modu
 ####Others
 Angular, Ajax, JQuery, Bootstrap, Node.js, Jade
 
-First Header  | Second Header
-------------- | -------------
-Content Cell  | Content Cell
-Content Cell  | Content Cell
+
 
 
 
