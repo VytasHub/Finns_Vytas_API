@@ -31,7 +31,7 @@ We are using couch DB to store JSON files which hosted on following website: www
 
 Name  | Extra Field
 ------------- | -------------
-State|State
+State                 |State
 Cork City and County  | Cork City and County
 
 
