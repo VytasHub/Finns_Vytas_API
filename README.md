@@ -8,25 +8,30 @@ We want to combine these two datasets so we can link household income 14 types o
 We are using couch DB to store JSON files which hosted on following website: www.smileupps.com
 
 
-###Paths:
+##Paths:
+
+####Gets all the county’s
+`/crimeco/counties`
+
+####Gets county by id
+`/crimeco/counties:id`
+
+####An example for county id
+`/crimeco/counties/5003`
+
+####Return different types of crime 
+`/crimeco/counties/crime`
+
+####Gets different types of house hold income
+`/crimeco/income`
+
+####Example
+`localhost:3333/crimeco/counties/5003`
+
+![HartChaser Logo](https://github.com/VytasHub/UnityGameBrowser/blob/master/FinishedBrowser/Assets/MainLogo.png "HartChaser")
 
 
-##/crimeco/counties
-Gets all the county’s
-
-##/crimeco/counties:id
-Gets county by id
-
-##/crimeco/counties/5003 
-An example for county id
-
-##/crimeco/counties/crime
-Return different types of crime 
-
-##/crimeco/income
-Gets different types of house hold income
-
-####Technology’s used
+##Technology’s used
 #####Modules: 
 Cors, Express, Nano, Path, Request
 
