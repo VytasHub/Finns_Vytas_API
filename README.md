@@ -13,7 +13,7 @@ We are using couch DB to store JSON files which hosted on following website: www
 ####Gets all the county’s
 `/crimeco/counties`
 ```json
-{"sample" "json"}
+{"sample": "json"}
 ```
 
 ####Gets county by id
