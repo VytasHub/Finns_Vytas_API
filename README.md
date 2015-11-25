@@ -11,9 +11,9 @@ We are using couch DB to store JSON files which hosted on following website: www
 ##Paths:
 
 ####Gets all the county’s
-req
+**req**  
 `/crimeco/counties`
-res
+**req**  
 ```json
 {"sample": "json"}
 ```
