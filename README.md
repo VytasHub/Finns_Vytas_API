@@ -59,14 +59,7 @@ We are using couch DB to store JSON files which hosted on following website: www
 
 `localhost:3333/crimeco/counties/5003`
 
-Name  | Extra Field
-------------- | -------------
-State|State
-Cork City and County  | Cork City and County
-Galway City and County|Galway City and County
-Limerick City and County|Limerick City and County
-Waterford City and County|Waterford City and County
-|
+![HartChaser Logo](https://github.com/VytasHub/finns_vytas_api/tree/master/screenhots/exampleresponse.png "HartChaser")
 
 
 
