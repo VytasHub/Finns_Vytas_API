@@ -20,9 +20,6 @@ We are using couch DB to store JSON files which hosted on following website: www
 **res** 
 ![alt tag](https://github.com/VytasHub/finns_vytas_api/blob/master/screenshots/exampleresponse.png)
 
-
-
-/crimeco/countiesdata
 ####Gets county’s interface
 **req**  
 `/crimeco/counties`
