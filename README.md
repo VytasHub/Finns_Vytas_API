@@ -1,7 +1,7 @@
 # Finns_Vytas_API
 
 
-![alt tag](https://raw.github.com/VytasHub/finns_vytas_api/master/screenhots/HomePage.png)
+![alt tag](https://github.com/VytasHub/finns_vytas_api/blob/master/screenshots/HomePage.png)
 
 
 In this project me (Vytas Vaiciulis) and Finn Williams are going to use datasets from www.cso.ie website.
@@ -18,7 +18,7 @@ We are using couch DB to store JSON files which hosted on following website: www
 `//crimeco/countiesdata`
 
 **res** 
-![alt tag](https://raw.github.com/VytasHub/finns_vytas_api/master/screenhots/exampleresponse.png)
+![alt tag](https://github.com/VytasHub/finns_vytas_api/blob/master/screenshots/exampleresponse.png)
 
 
 
