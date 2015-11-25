@@ -11,7 +11,9 @@ We are using couch DB to store JSON files which hosted on following website: www
 ##Paths:
 
 ####Gets all the county’s
+req
 `/crimeco/counties`
+res
 ```json
 {"sample": "json"}
 ```
@@ -67,8 +69,13 @@ This module contains utilities for handling and transforming file paths. Almost 
 The simplest way to create HTTP requests in Node.js is by using the request module.
 `npm install request`
 
+
+####Front End
+Front End
+Used Bootstrap for design and Angular to format incoming json object ng-repeat came in very handy.
+
 ####Other Technologys used 
-Angular, Ajax, JQuery, Bootstrap, Node.js, Jade
+Ajax, JQuery,Node.js, Jade
 
 
 
