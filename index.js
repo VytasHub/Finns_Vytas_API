@@ -178,9 +178,9 @@ app.get('/crimeco/countiesdata', function (request, response) {
 });
 
 app.get('/crimeco/crimedata', function (request, response) {
-{
+
     response.send(crimeData.dataset.dimension["Garda Division"].category.label);
-}
+});
 
 app.post('/crimeco/crime/', function (request, response) {
 
