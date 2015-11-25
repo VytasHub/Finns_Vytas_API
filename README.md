@@ -17,7 +17,7 @@ We are using couch DB to store JSON files which hosted on following website: www
 `//crimeco/countiesdata`
 
 **res**  
-![alt tag](https://raw.githubusercontent.com/VytasHub/finns_vytas_api/master/screenhots/countyInterface.png)
+![alt tag](https://raw.github.com/VytasHub/finns_vytas_api/blob/master/screenshots/countyInterface.png)
 
 
 /crimeco/countiesdata
