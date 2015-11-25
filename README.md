@@ -14,22 +14,46 @@ We are using couch DB to store JSON files which hosted on following website: www
 **req**  
 `/crimeco/counties`
 
-**req**  
+**res**  
 ```json
 {"sample": "json"}
 ```
 
 ####Gets county by id
+**req**  
 `/crimeco/counties:id`
 
+**res**  
+```json
+{"sample": "json"}
+```
+
 ####An example for county id
+**req**  
 `/crimeco/counties/5003`
 
+**res**  
+```json
+{"sample": "json"}
+```
+
 ####Return different types of crime 
+**req**  
 `/crimeco/counties/crime`
 
+**res**  
+```json
+{"sample": "json"}
+```
+
 ####Gets different types of house hold income
+**req**  
 `/crimeco/income`
+
+**res**  
+```json
+{"sample": "json"}
+```
 
 ####Example
 
