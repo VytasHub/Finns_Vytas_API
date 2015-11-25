@@ -63,7 +63,7 @@ We are using couch DB to store JSON files which hosted on following website: www
 `localhost:3333/crimeco/counties/5003`
 
 **res**  
-![alt tag](https://raw.githubusercontent.com/VytasHub/finns_vytas_api/master/screenhots/HomePage.png)
+![alt tag](https://raw.githubusercontent.com/VytasHub/finns_vytas_api/master/screenhots/exampleresponse.png)
 
 
 
