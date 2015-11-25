@@ -59,8 +59,8 @@ We are using couch DB to store JSON files which hosted on following website: www
 
 `localhost:3333/crimeco/counties/5003`
 
-![HartChaser Logo](https://github.com/VytasHub/finns_vytas_api/tree/master/screenhots/exampleresponse.png "HartChaser")
-![alt tag](https://github.com/VytasHub/finns_vytas_api/tree/master/screenhots/exampleresponse.png)
+
+![alt tag](https://raw.githubusercontent.com/VytasHub/finns_vytas_api/master/screenhots/HomePage.png)
 
 
 
