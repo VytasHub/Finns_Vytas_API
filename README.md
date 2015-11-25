@@ -48,10 +48,9 @@ We are using couch DB to store JSON files which hosted on following website: www
 **req**  
 `/crimeco/counties/crime`
 
-**res**  
-```json
-{"sample": "json"}
-```
+**res** 
+![alt tag](https://github.com/VytasHub/finns_vytas_api/blob/master/screenshots/assaultingpupy.png)
+
 
 ####Gets different types of house hold income
 **req**  
