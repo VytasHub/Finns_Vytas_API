@@ -12,15 +12,21 @@ We are using couch DB to store JSON files which hosted on following website: www
 
 
 ##Paths:
-
 ####Gets all the county’s
+**req**  
+`//crimeco/countiesdata`
+
+**res**  
+![alt tag](https://raw.githubusercontent.com/VytasHub/finns_vytas_api/master/screenhots/countyInterface.png)
+
+
+/crimeco/countiesdata
+####Gets county’s interface
 **req**  
 `/crimeco/counties`
 
 **res**  
-```json
-{"sample": "json"}
-```
+
 
 ####Gets county by id
 **req**  
